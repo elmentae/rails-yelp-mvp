@@ -2,12 +2,27 @@
   <h2>Welcome to the <p class="text-primary d-inline"><%= @restaurant.name %></p></h2>
   <h3>We are proud to serve our customers the finest <%= @restaurant.category %> cuisine!</h3>
   <br>
-  <div class="bg bg-white rounded-lg text-center mx-auto w-50">
-    <p class="text-muted"><strong><em>Our address:</em></strong></p>
+  <div class="bg bg-white rounded-lg text-center mx-auto w-50 py-1 pt-3">
+    <p class="text-muted"><strong><em>Our address</em></strong></p>
     <p><%= @restaurant.address %></p>
     <br>
-    <p class="text-muted"><strong><em>You can reach us at:</em></strong></p>
+    <p class="text-muted"><strong><em>You can reach us at</em></strong></p>
     <p><%= @restaurant.phone_number %></p>
+  </div>
+  <hr>
+  <div class="bg bg-white rounded-lg text-center mx-auto w-50 py-1 pt-3">
+    <p class="text-muted"><strong><em>Latest reviews</em></strong></p>
+    <p class="text-info"><%= link_to "➕ Add new review", new_restaurant_review_path(@restaurant) %></p>
+
+    <% @restaurant.reviews.each do |review| %>
+      <p class="text-left pl-3">Rating: <% review.rating.times do %>
+        <%= "⭐" %>
+        <% end %>
+      </p>
+      <p class="text-left pl-3"><%= review.content %></p>
+      <hr>
+    <% end %>
+
   </div>
   <p class="display-4"><%= link_to "⬅", restaurants_path %></p>
 </div>
