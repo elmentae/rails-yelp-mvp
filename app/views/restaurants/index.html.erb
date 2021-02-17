@@ -1,7 +1,7 @@
 <h2 class="mt-3 text-muted">Discover our restaurants:</h2>
 <p class="text-info"><%= link_to "➕ Add new restaurant", new_restaurant_path %></p>
-<ul class="list-group w-25">
-  <% @restaurants.each do |restaurant| %>
+<ul class="list-group w-25 my-3 rounded-lg">
+  <% @restaurants.reverse_each do |restaurant| %>
     <li class="list-group-item"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
   <% end %>
 </ul>
