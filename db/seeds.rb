@@ -1,4 +1,6 @@
-5.times do
+Restaurant.destroy_all
+
+15.times do
   Restaurant.create!(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
